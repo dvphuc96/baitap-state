@@ -1,0 +1,27 @@
+.glass {
+  width: 1136px;
+  background: url(../../public/glassesImage/background.jpg) no-repeat;
+  padding: 100px 0 200px;
+  position: relative;
+  margin: 0 auto;
+  height: 936px;
+}
+.content-top {
+  width: 480px;
+  background: url(../../public/glassesImage/model.jpg) no-repeat;
+  height: 585px;
+}
+.content-bottom {
+  width: 850px;
+}
+.btn-change-glass {
+  border: 2px solid #ccc;
+  background: transparent;
+}
+.img-glass {
+  position: relative;
+  width: 300px;
+  padding: 25px;
+  top: 120px;
+  opacity: 0.6;
+}
