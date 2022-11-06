@@ -67,7 +67,11 @@ const data = [
 ];
 export default class TryGlasses extends Component {
   state = {
-    url: "./glassesImage/v1.png",
+    spChiTiet: {
+      name: "",
+      url: "",
+      desc: "",
+    },
   };
   renderGlass = () => {
     return data.map((item, index) => {
@@ -77,7 +81,7 @@ export default class TryGlasses extends Component {
             className={`${style["btn-change-glass"]}`}
             onClick={() => {
               this.setState({
-                url: item.url,
+                spChiTiet: item,
               });
             }}
           >
@@ -88,13 +92,53 @@ export default class TryGlasses extends Component {
     });
   };
   render() {
-    const imgUrl = this.state.url;
+    // <img src={url} alt="..." className={`${style["img-glass"]}`} />
+    // <div className={`${style["content-sanpham"]}`}>
+    //   <h3 className={`${style["content-sanpham-name"]}`}>{name}</h3>
+    //   <p className={`${style["content-sanpham-desc"]}`}>{desc}</p>
+    // </div>
+    const { name, url, desc } = this.state.spChiTiet;
     return (
       <div className={`${style["bg-page"]}`}>
+        <div className={`${style["over-lay"]}`}></div>
         <div className={`${style["glass"]}`}>
           <div className="container">
-            <div className={`${style["content-top"]} text-center mx-auto`}>
-              <img src={imgUrl} alt="..." className={`${style["img-glass"]}`} />
+            <h3 className="text-center mb-3">TRY GLASSES APP ONLINE</h3>
+            <div
+              className={`${style["content-top"]} text-center mx-auto d-block`}
+            >
+              <div className="row">
+                <div className="col-6 text-center mx-auto d-flex justify-content-center">
+                  <div className={`${style["model-left"]}`}>
+                    {url !== "" && name !== "" && desc !== "" ? (
+                      <>
+                        <img
+                          src={url}
+                          alt="..."
+                          className={`${style["img-glass-change"]}`}
+                        />
+                        <div className={`${style["content-sanpham"]}`}>
+                          <h3 className={`${style["content-sanpham-name"]}`}>
+                            {name}
+                          </h3>
+                          <p className={`${style["content-sanpham-desc"]}`}>
+                            {desc}
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="col-6">
+                  <img
+                    src="./glassesImage/model.jpg"
+                    alt=""
+                    className={`${style["img-glass"]}`}
+                  />
+                </div>
+              </div>
             </div>
             <div
               className={`${style["content-bottom"]} text-center mx-auto bg-white mt-5`}
